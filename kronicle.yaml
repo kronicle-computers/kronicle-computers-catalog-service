@@ -1,0 +1,35 @@
+# This file is read automatically by Kronicle https://kronicle.tech
+
+# The contents of this file is for Kronicle Computers, a fictional online computer shop, used as an example by
+# [Kronicle](https://kronicle.tech)
+
+components:
+  - id: catalog-service
+    name: Catalog Service
+    type: microservice
+    repo:
+      url: https://github.com/kronicle-computers/kronicle-computers-catalog-service.git
+    description: |
+      The microservice that holds the product catalog for the fictional Kronicle Computer online shop
+    tags:
+      - backend
+    teams:
+      - teamId: catalog
+    platform: kubernetes
+    dependencies:
+      - targetComponentId: catalog-service-database
+      - targetComponentId: zipkin
+  - id: catalog-service-database
+    name: Catalog Service Database
+    type: database
+    repo:
+      url: https://github.com/kronicle-computers/kronicle-computers-catalog-service.git
+    description: |
+      The database that holds the product catalog data for the [Catalog Service](/components/catalog-service)
+    tags:
+      - backend
+    teams:
+      - teamId: catalog
+    platform: kubernetes
+    dependencies:
+      - targetComponentId: main-mongodb-cluster
