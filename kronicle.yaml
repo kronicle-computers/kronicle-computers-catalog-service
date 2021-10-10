@@ -4,9 +4,10 @@
 # [Kronicle](https://kronicle.tech)
 
 components:
+
   - id: catalog-service
     name: Catalog Service
-    type: microservice
+    typeId: microservice
     repo:
       url: https://github.com/kronicle-computers/kronicle-computers-catalog-service.git
     description: |
@@ -19,9 +20,10 @@ components:
     dependencies:
       - targetComponentId: catalog-service-database
       - targetComponentId: zipkin
+
   - id: catalog-service-database
     name: Catalog Service Database
-    type: database
+    typeId: mongodb-database
     repo:
       url: https://github.com/kronicle-computers/kronicle-computers-catalog-service.git
     description: |
